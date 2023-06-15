@@ -1,0 +1,4 @@
+1. Создать образ командой docker build -t test_image:latest .
+2. На основе созданного образа сформировать контейнер командой docker run --rm -d -p 5435:5432 --name test_container test_image:latest
+3. Запустить контейнер командой docker exec -it test_container psql -U postgres 
+4. Чтобы хранение данных добавить в контейнер том и снова запустить контейнер командой docker run --rm -d -p 5432:5432 --name test_container -v /data:/var/lib/postgresql/data test_image:latest
